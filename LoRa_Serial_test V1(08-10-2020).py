@@ -5,7 +5,7 @@ from time import sleep
 GPIO.setwarnings(False)
 
 
-class SerialPass:
+class SerialPass():
     
     def __init__(self,portname='/dev/ttyS0',baudrate = 9600):
         self.portname=portname
@@ -28,8 +28,8 @@ class AT_COMMAND(SerialPass):
     
     def AT_Cmd(self):
         try:
-            obj.serial_write(b'AT')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+AT')
             cmp = str_res1[index_res1 : -2]
@@ -40,8 +40,8 @@ class AT_COMMAND(SerialPass):
         
     def version(self):
         try:
-            obj.serial_write(b'AT+VER')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+VER')
+            res1=atcommand.serial_read()
             rec = ("+VER: 4.0.11")
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+VER')
@@ -53,8 +53,8 @@ class AT_COMMAND(SerialPass):
         
     def reset(self):
         try:
-            obj.serial_write(b'AT+RESET')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+RESET')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+RESET')
             cmp = str_res1[index_res1 : -2]
@@ -65,8 +65,8 @@ class AT_COMMAND(SerialPass):
         
     def port(self):
         try:
-            obj.serial_write(b'AT+PORT=?')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+PORT=?')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+PORT')
             cmp = str_res1[index_res1 : -2]
@@ -77,8 +77,8 @@ class AT_COMMAND(SerialPass):
         
     def port_set(self,data):
         try:
-            obj.serial_write(b'AT+PORT=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+PORT=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+PORT')
             cmp = str_res1[index_res1 : -2]
@@ -89,8 +89,8 @@ class AT_COMMAND(SerialPass):
         
     def adr(self,data):
         try:
-            obj.serial_write(b'AT+ADR=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+ADR=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+ADR')
             cmp = str_res1[index_res1 : -2]
@@ -102,8 +102,8 @@ class AT_COMMAND(SerialPass):
         
     def dr(self):
         try:
-            obj.serial_write(b'AT+DR')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+DR')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+DR')
             cmp = str_res1[index_res1 : -2]
@@ -114,8 +114,8 @@ class AT_COMMAND(SerialPass):
         
     def dr_set(self,data):
         try:
-            obj.serial_write(b'AT+DR=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+DR=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+DR')
             cmp = str_res1[index_res1 : -2]
@@ -127,8 +127,8 @@ class AT_COMMAND(SerialPass):
         
     def ch(self):
         try:
-            obj.serial_write(b'AT+CH')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+CH')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+CH')
             cmp = str_res1[index_res1 : -2]
@@ -139,8 +139,8 @@ class AT_COMMAND(SerialPass):
         
     def ch_set(self,data):
         try:
-            obj.serial_write(b'AT+CH=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+CH=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+CH')
             cmp = str_res1[index_res1 : -2]
@@ -151,8 +151,8 @@ class AT_COMMAND(SerialPass):
         
     def power(self):
         try:
-            obj.serial_write(b'AT+POWER')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+POWER')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+POWER')
             cmp = str_res1[index_res1 : -2]
@@ -163,8 +163,8 @@ class AT_COMMAND(SerialPass):
         
     def power_set(self,data):
         try:
-            obj.serial_write(b'AT+POWER=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+POWER=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+POWER')
             cmp = str_res1[index_res1 : -2]
@@ -175,8 +175,8 @@ class AT_COMMAND(SerialPass):
         
     def rept(self,data):
         try:
-            obj.serial_write(b'AT+REPT=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+REPT=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+REPT')
             cmp = str_res1[index_res1 : -2]
@@ -187,8 +187,8 @@ class AT_COMMAND(SerialPass):
         
     def retry(self,data):
         try:
-            obj.serial_write(b'AT+RETRY=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+RETRY=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+RETRY')
             cmp = str_res1[index_res1 : -2]
@@ -199,8 +199,8 @@ class AT_COMMAND(SerialPass):
         
     def rxwin2(self):
         try:
-            obj.serial_write(b'AT+RXWIN2')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+RXWIN2')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+RXWIN2')
             cmp = str_res1[index_res1 : -2]
@@ -211,8 +211,8 @@ class AT_COMMAND(SerialPass):
         
     def rxwin2_set(self,data):
         try:
-            obj.serial_write(b'AT+RXWIN2=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+RXWIN2=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+RXWIN2')
             cmp = str_res1[index_res1 : -2]
@@ -223,8 +223,8 @@ class AT_COMMAND(SerialPass):
         
     def rxwin1(self):
         try:
-            obj.serial_write(b'AT+RXWIN1')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+RXWIN1')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+RXWIN1')
             cmp = str_res1[index_res1 : -2]
@@ -235,8 +235,8 @@ class AT_COMMAND(SerialPass):
         
     def rxwin1_set(self,data):
         try:
-            obj.serial_write(b'AT+RXWIN1=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+RXWIN1=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+RXWIN1')
             cmp = str_res1[index_res1 : -2]
@@ -247,8 +247,8 @@ class AT_COMMAND(SerialPass):
         
     def key(self):
         try:
-            obj.serial_write(b'AT+KEY')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+KEY')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+KEY')
             cmp = str_res1[index_res1 : -2]
@@ -260,8 +260,8 @@ class AT_COMMAND(SerialPass):
         
     def key_set(self,data):
         try:
-            obj.serial_write(b'AT+KEY=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+KEY=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+KEY')
             cmp = str_res1[index_res1 : -2]
@@ -272,8 +272,8 @@ class AT_COMMAND(SerialPass):
         
     def fdefault(self):
         try:
-            obj.serial_write(b'AT+FDEFAULT')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+FDEFAULT')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+FDEFAULT')
             cmp = str_res1[index_res1 : -2]
@@ -284,8 +284,8 @@ class AT_COMMAND(SerialPass):
         
     def fdefault_set(self,data):
         try:
-            obj.serial_write(b'AT+FDEFAULT=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+FDEFAULT=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+FDEFAULT')
             cmp = str_res1[index_res1 : -2]
@@ -296,8 +296,8 @@ class AT_COMMAND(SerialPass):
         
     def dfu(self):
         try:
-            obj.serial_write(b'AT+DFU')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+DFU')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+DFU')
             cmp = str_res1[index_res1 : -2]
@@ -308,8 +308,8 @@ class AT_COMMAND(SerialPass):
         
     def dfu_set(self,data):
         try:
-            obj.serial_write(b'AT+DFU=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+DFU=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+DFU')
             cmp = str_res1[index_res1 : -2]
@@ -320,8 +320,8 @@ class AT_COMMAND(SerialPass):
         
     def mode(self,data):
         try:
-            obj.serial_write(b'AT+MODE=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+MODE=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+MODE')
             cmp = str_res1[index_res1 : -2]
@@ -332,8 +332,8 @@ class AT_COMMAND(SerialPass):
         
     def join(self):
         try:
-            obj.serial_write(b'AT+JOIN')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+JOIN')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+JOIN')
             cmp = str_res1[index_res1 : -2]
@@ -344,8 +344,8 @@ class AT_COMMAND(SerialPass):
         
     def join_set(self,data):
         try:
-            obj.serial_write(b'AT+JOIN=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+JOIN=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+JOIN')
             cmp = str_res1[index_res1 : -2]
@@ -356,8 +356,8 @@ class AT_COMMAND(SerialPass):
         
     def beacon(self):
         try:
-            obj.serial_write(b'AT+BEACON')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+BEACON')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+BEACON')
             cmp = str_res1[index_res1 : -2]
@@ -368,8 +368,8 @@ class AT_COMMAND(SerialPass):
         
     def beacon_set(self,data):
         try:
-            obj.serial_write(b'AT+BEACON=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+BEACON=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+BEACON')
             cmp = str_res1[index_res1 : -2]
@@ -380,8 +380,8 @@ class AT_COMMAND(SerialPass):
         
     def class_forced(self):
         try:
-            obj.serial_write(b'AT+CLASS=B')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+CLASS=B')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+BEACON')
             cmp = str_res1[index_res1 : -2]
@@ -392,8 +392,8 @@ class AT_COMMAND(SerialPass):
         
     def OTAA(self):
         try:
-            obj.serial_write(b'AT+MODE=LWOTAA')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+MODE=LWOTAA')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             #index_res1 = str_res1.find('+BEACON')
             #cmp = str_res1[index_res1 : -2]
@@ -404,8 +404,8 @@ class AT_COMMAND(SerialPass):
         
     def delay(self):
         try:
-            obj.serial_write(b'AT+DELAY')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+DELAY')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+DELAY')
             cmp = str_res1[index_res1 : -2]
@@ -416,8 +416,8 @@ class AT_COMMAND(SerialPass):
         
     def delay_set(self,data):
         try:
-            obj.serial_write(b'AT+DELAY=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+DELAY=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+DELAY')
             cmp = str_res1[index_res1 : -2]
@@ -428,8 +428,8 @@ class AT_COMMAND(SerialPass):
         
     def wdt(self):
         try:
-            obj.serial_write(b'AT+WDT')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+WDT')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+WDT')
             cmp = str_res1[index_res1 : -2]
@@ -440,8 +440,8 @@ class AT_COMMAND(SerialPass):
             
     def wdt_set(self,data):
         try:
-            obj.serial_write(b'AT+WDT=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+WDT=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+WDT')
             cmp = str_res1[index_res1 : -2]
@@ -452,8 +452,8 @@ class AT_COMMAND(SerialPass):
             
     def lowpower(self):
         try:
-            obj.serial_write(b'AT+LOWPOWER')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+LOWPOWER')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+LOWPOWER')
             cmp = str_res1[index_res1 : -2]
@@ -464,8 +464,8 @@ class AT_COMMAND(SerialPass):
             
     def lowpower_set(self,data):
         try:
-            obj.serial_write(b'AT+LOWPOWER=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+LOWPOWER=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+LOWPOWER')
             cmp = str_res1[index_res1 : -2]
@@ -476,8 +476,8 @@ class AT_COMMAND(SerialPass):
             
     def vdd(self):
         try:
-            obj.serial_write(b'AT+VDD')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+VDD')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+VDD')
             cmp = str_res1[index_res1 : -2]
@@ -488,8 +488,8 @@ class AT_COMMAND(SerialPass):
             
     def vdd_req(self,data):
         try:
-            obj.serial_write(b'AT+VDD=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+VDD=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+VDD')
             cmp = str_res1[index_res1 : -2]
@@ -500,8 +500,8 @@ class AT_COMMAND(SerialPass):
             
     def temp(self):
         try:
-            obj.serial_write(b'AT+TEMP')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+TEMP')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+TEMP')
             cmp = str_res1[index_res1 : -2]
@@ -512,8 +512,8 @@ class AT_COMMAND(SerialPass):
             
     def temp_set(self,data):
         try:
-            obj.serial_write(b'AT+TEMP=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+TEMP=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+TEMP')
             cmp = str_res1[index_res1 : -2]
@@ -524,8 +524,8 @@ class AT_COMMAND(SerialPass):
             
     def eeprom_set(self,data):
         try:
-            obj.serial_write(b'AT+TEMP=' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+TEMP=' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+EEPROM')
             cmp = str_res1[index_res1 : -2]
@@ -536,8 +536,8 @@ class AT_COMMAND(SerialPass):
             
     def timeout(self):
         try:
-            obj.serial_write(b'AT+UART=TIMEOUT,' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+UART=TIMEOUT,' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             #index_res1 = str_res1.find('+TIMEOUT')
             #cmp = str_res1[index_res1 : -2]
@@ -548,8 +548,8 @@ class AT_COMMAND(SerialPass):
             
     def timeout_disable(self,data):
         try:
-            obj.serial_write(b'AT+UART=TIMEOUT,0')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+UART=TIMEOUT,0')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             #index_res1 = str_res1.find('+TIMEOUT')
             #cmp = str_res1[index_res1 : -2]
@@ -560,8 +560,8 @@ class AT_COMMAND(SerialPass):
             
     def timeout_set(self,data):
         try:
-            obj.serial_write(b'AT+UART=TIMEOUT,1000')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+UART=TIMEOUT,1000')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             #index_res1 = str_res1.find('+TIMEOUT')
             #cmp = str_res1[index_res1 : -2]
@@ -572,8 +572,8 @@ class AT_COMMAND(SerialPass):
             
     def br(self):
         try:
-            obj.serial_write(b'AT+UART=BR')
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+UART=BR')
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+UART')
             cmp = str_res1[index_res1 : -2]
@@ -584,8 +584,8 @@ class AT_COMMAND(SerialPass):
             
     def br_set(self,data):
         try:
-            obj.serial_write(b'AT+UART=BR,' + bytes(data, 'UTF-8'))
-            res1=obj.serial_read()
+            atcommand.serial_write(b'AT+UART=BR,' + bytes(data, 'UTF-8'))
+            res1=atcommand.serial_read()
             str_res1 = str(res1, 'UTF-8')
             index_res1 = str_res1.find('+UART')
             cmp = str_res1[index_res1 : -2]
@@ -1487,11 +1487,9 @@ class LOG(SerialPass):
         except Exception as e:
             return e
         
-        
-        
 if __name__ == "__main__":
     
-    obj = AT_COMMAND()
+    atcommand = AT_COMMAND()
     dev = DEV_ID()
     msg = MSG()
     atclass = AT_CLASS()
@@ -1499,7 +1497,5 @@ if __name__ == "__main__":
     rtc = RTC()
     test = TEST()
     log = LOG()
-    res=obj.key()
+    res=dev.ID()
     print(res)
-    
-
